@@ -29,8 +29,10 @@
 //     return "this url is ".$url;	
 // }));
 
-Route::get('/post','PostController@index');
-
+//Route::get('/post/{id}','PostsController@index');
+//Route::resource('post','PostsController');
+Route::get('/contact','PostsController@contact');
+Route::get('post/{id}/{name}/{password}','PostsController@show_post');
 
 
 
