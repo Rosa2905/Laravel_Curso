@@ -56,7 +56,11 @@ Route::get('/update',function(){
 	return $updated;
 
 });
-
+//-----------------------------------------------------------Delete Data
+Route::get('/delete',function(){
+	$delete=DB::delete('delete from posts where id=? ',[1]);
+	return $delete;
+});
 
 
 
