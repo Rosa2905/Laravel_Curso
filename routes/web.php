@@ -50,6 +50,12 @@ Route::get('/read',function(){
 		return $post->title;
 	}
 });
+//-----------------------------------------------------------Update Data
+Route::get('/update',function(){
+	$updated= DB::update('update posts set title="Update title" where id = ?',[1]);
+	return $updated;
+
+});
 
 
 
