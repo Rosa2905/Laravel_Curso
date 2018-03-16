@@ -6,6 +6,7 @@
 |--------------------------------------------------------------------------
 |
 */
+use App\Post;
 
 Route::get('/', function () {
     return view('welcome');
@@ -43,13 +44,13 @@ Route::get('/insert', function () {
 	});
 //----------------------------------------------------------Read Data
 
-Route::get('/read',function(){
-	$results=DB::select ('select * from posts where id= ?',[1]);
-	foreach($results as $post)
-	{
-		return $post->title;
-	}
-});
+// Route::get('/read',function(){
+// 	$results=DB::select ('select * from posts where id= ?',[1]);
+// 	foreach($results as $post)
+// 	{
+// 		return $post->title;
+// 	}
+// });
 //-----------------------------------------------------------Update Data
 Route::get('/update',function(){
 	$updated= DB::update('update posts set title="Update title" where id = ?',[1]);
@@ -60,6 +61,23 @@ Route::get('/update',function(){
 Route::get('/delete',function(){
 	$delete=DB::delete('delete from posts where id=? ',[1]);
 	return $delete;
+});
+
+/*
+|--------------------------------------------------------------------------
+| Eloquent
+|--------------------------------------------------------------------------
+|
+*/
+
+Route::get('/find',function(){
+	$posts= Post::find(2);
+	return $posts->title;
+
+	// foreach ($posts as $post) {
+	// 	return $post->title;
+	// }
+
 });
 
 
