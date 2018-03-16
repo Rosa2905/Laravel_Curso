@@ -15,7 +15,7 @@ class AddIsAdminColumnToPostsTables extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
 
-            $table->integer('is_admin')->unsigned();
+            $table->tinyInteger('is_admin')->default('0');
         });
     }
 
@@ -27,7 +27,8 @@ class AddIsAdminColumnToPostsTables extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->dropColum('is_admin');
+            $table->dropColumn('is_admin');
+
         });
     }
 }
