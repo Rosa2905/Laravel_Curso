@@ -39,7 +39,7 @@ Route::get('/', function () {
 */
 //--------------------------------------------------------Insert  DATA 
 Route::get('/insert', function () {
-	DB::insert('insert into posts(title,content) values(?,?)',['PHP with Laravel','Laravel is the best']);
+	DB::insert('insert into posts(title,content) values(?,?)',['PHP with Laravel','Laravel is the   best']);
 	});
 //----------------------------------------------------------Read Data
 
