@@ -107,4 +107,21 @@ Route::get('/findmore',function(){
 });
 
 
+/*
+|--------------------------------------------------------------------------
+| Insert it search and insert 
+|--------------------------------------------------------------------------
+*/
+Route::get('/basicinsert',function(){
+	//$post = new Post; FOR A NEW INSERT 
+	$post = Post::find(2);
+	$post->title = 'New Eloquent title insertUpdate2';
+	$post->content = 'Look the new contectUpdate2';
+	$post->save();
+});
+
+
+
+
+
 
