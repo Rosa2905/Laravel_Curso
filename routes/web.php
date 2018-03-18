@@ -178,6 +178,10 @@ Route::get('/softDeletes',function(){
 		Post::withTrashed()->where('is_admin',0)->restore();
 	});
 
+Route::get('/forcedelete',function(){
+	post::onlyTrashed()->where('is_admin',0)->forceDelete();
+});
+
 
 
 
