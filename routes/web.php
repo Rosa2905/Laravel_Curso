@@ -40,7 +40,7 @@ Route::get('/', function () {
 */
 //--------------------------------------------------------Insert  DATA 
 Route::get('/insert', function () {
-	DB::insert('insert into posts(title,content) values(?,?)',['PHP with Laravel','Laravel is the   best']);
+	DB::insert('insert into posts(title,content) values(?,?)',['laravel','new insert in DB']);
 	});
 //----------------------------------------------------------Read Data
 
@@ -78,6 +78,19 @@ Route::get('/find',function(){
 	// 	return $post->title;
 	// }
 
+});
+
+/*
+|--------------------------------------------------------------------------
+| Eloquent finding with contstract
+|--------------------------------------------------------------------------
+|
+*/
+
+
+Route::get('findwhere',function(){
+	$post=Post::where('title','laravel')->orderBy('id','desc')->take(2)->get();
+	return $post;
 });
 
 
