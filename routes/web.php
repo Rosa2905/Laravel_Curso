@@ -94,6 +94,17 @@ Route::get('findwhere',function(){
 });
 
 
+/*
+|--------------------------------------------------------------------------
+| Eloquent to retrieve data(if dont exit send a message 404)
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/findmore',function(){  
+	 $post=Post::findOrFail(3);
+	  return $post;
+	//$posts=Post::where('id','<',50)->firstOrFail();
+});
 
 
 
