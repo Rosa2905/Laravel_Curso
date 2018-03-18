@@ -86,7 +86,7 @@ class PostsController extends Controller
     {
 
         $people= ['Edwin','Jose','James','Peter','Maria'];
-        //$people=[]
+        //$people=[] 
         return view('contact',compact('people'));
     }
 
