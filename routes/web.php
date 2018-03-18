@@ -166,6 +166,14 @@ Route::get('/softDeletes',function(){
 	Post::find(3)->delete();
 });
 
+Route::get('/readsoftDeletes',function(){
+	//$post= Post::find(1);
+	//return $post;
+	$post= Post::onlyTrashed()->where('id',3->get();
+	return $post;
+});
+
+
 
 
 
