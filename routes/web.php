@@ -166,12 +166,17 @@ Route::get('/softDeletes',function(){
 	Post::find(3)->delete();
 });
 
-Route::get('/readsoftDeletes',function(){
-	//$post= Post::find(1);
-	//return $post;
-	$post= Post::onlyTrashed()->where('id',3->get();
-	return $post;
-});
+// Route::get('/readsoftDeletes',function(){
+// 	//$post= Post::find(1);
+// 	//return $post;
+// 	// $post= Post::withTrashed()->where('id',3)->get();
+// 	// return $post;
+// 	$post= Post::onlyTrashed()->where('id',3->get();
+// 	return $post;
+// });
+	Route::get('/restore',function(){
+		Post::withTrashed()->where('is_admin',0)->restore();
+	});
 
 
 
