@@ -146,6 +146,21 @@ Route::get('/Update2',function(){
 	//this dont have to return and make a variable;
 });
 
+/*
+|--------------------------------------------------------------------------
+| Delete Eloquent
+|--------------------------------------------------------------------------
+*/
+Route::get('/Delete2',function(){
+	$post = post::find(2);
+	$post->delete();  //first we have to charge the object
+});
+
+Route::get('/delete2',function(){
+	Post::destroy([4,5]); 
+	//post::where('is_admin',0)=>delete();
+});
+
 
 
 
