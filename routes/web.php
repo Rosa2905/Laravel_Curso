@@ -42,6 +42,13 @@ Route::get('/', function () {
 Route::get('/insert', function () {
 	DB::insert('insert into posts(title,content) values(?,?)',['laravel','new insert in DB']);
 	});
+
+Route::get('/create',function(){
+	Post::create(['title'=>'the create method','content'=>'WOW look here']);
+});
+
+
+
 //----------------------------------------------------------Read Data
 
 // Route::get('/read',function(){
@@ -109,15 +116,34 @@ Route::get('/findmore',function(){
 
 /*
 |--------------------------------------------------------------------------
-| Insert it search and insert 
+| Insert AND Update
 |--------------------------------------------------------------------------
 */
 Route::get('/basicinsert',function(){
-	//$post = new Post; FOR A NEW INSERT 
-	$post = Post::find(2);
+	//$post = new Post; ----------------------------   FOR A NEW INSERT 
+	$post = Post::find(2); //FOR AN UPDATE 
 	$post->title = 'New Eloquent title insertUpdate2';
 	$post->content = 'Look the new contectUpdate2';
 	$post->save();
+});
+
+/*
+|--------------------------------------------------------------------------
+| Create
+|--------------------------------------------------------------------------
+*/
+Route::get('/create',function(){
+	Post::create(['title'=>'the create method','content'=>'WOW look here']);
+});
+
+/*
+|--------------------------------------------------------------------------
+| Update2 
+|--------------------------------------------------------------------------
+*/
+Route::get('/Update2',function(){
+	Post::where('id',2)->where('is_admin',0)->update(['title'=>'New PHP title','content'=>'I have a good instructor']);
+	//this dont have to return and make a variable;
 });
 
 
